@@ -9,7 +9,18 @@
       <%= f.text_field :name, :class => "form-control required", :maxlength => 50 %>
 
       <%= f.label t('profile.occupation.label'), :class => "text" %>
-      <%= f.select(:occupation, options_for_select([[t('profile.occupation.options.select'), 0], [t('profile.occupation.options.teacher'), 1],[t('profile.occupation.options.scientist'),2], [t('profile.occupation.options.other'),3]], profile_subject.occupation)) %>
+      <%= f.select(:occupation, options_for_select(
+        [[t('profile.occupation.options.select'), 0], [t('profile.occupation.options.teacher'), 1],
+          [t('profile.occupation.options.scientist'),2], [t('profile.occupation.options.other'),3]],
+           profile_subject.occupation), {}, class: "form-control") 
+      %>
+
+      <%= f.label "Institución de Educación" %>
+        <%= f.select(:institution, options_for_select(
+            @institutions.map { |t| [t["name"], t["id"]]}, 
+            current_user ? current_user.institution : nil
+          ), {}, class: "form-control") 
+      %>
 
       <%= f.label t('profile.organization'), :class => "text" %>
       <%= f.text_field :organization, :class => "form-control input_settings" %>

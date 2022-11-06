@@ -11,7 +11,6 @@ class RegistrationsController < Devise::RegistrationsController
 
   # POST /resource
   def create
-    pp params[:user] 
     #Infer user language from client information
     if !I18n.locale.nil? and !params[:user].nil? and (params[:user][:language].blank? or !I18n.available_locales.include?(params[:user][:language].to_sym)) and I18n.available_locales.include?(I18n.locale.to_sym)
       params[:user] ||= {}
@@ -88,29 +87,6 @@ class RegistrationsController < Devise::RegistrationsController
 
   def sign_up_params
     params.require(:user).permit(:email, :password, :password_confirmation)
-  end
-
-  def get_institutions
-    ies = []
-    begin
-      #... process, may raise an exception
-      uri = URI('https://jsonplaceholder.typicode.com/users')
-      res = Net::HTTP.get_response(uri)
-    rescue
-      #... error handler
-      #pp "========================== ERROR ======================================="
-    else
-      #... executes when no error
-      ies = res.is_a?(Net::HTTPSuccess) ? JSON.parse(res.body) : []
-    ensure
-      #... always executed
-      #pp "============================= EXECUTE ALWAYS ====================================="
-    end
-
-    # Add default option
-    ies.unshift({"id" => 0, "name" => t('profile.occupation.options.select')})
-
-    @institutions = ies
   end
 
 end

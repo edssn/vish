@@ -109,4 +109,28 @@ class ApplicationController < ActionController::Base
     (request.env['HTTP_ACCEPT_LANGUAGE'].scan(/^[a-z]{2}/).map{|l| l.to_sym} & I18n.available_locales).first if request.env['HTTP_ACCEPT_LANGUAGE'].is_a? String
   end
 
+  ## Get Institutions
+  def get_institutions
+		ies = []
+		begin
+		  #... process, may raise an exception
+		  uri = URI('https://jsonplaceholder.typicode.com/users')
+		  res = Net::HTTP.get_response(uri)
+		rescue
+		  #... error handler
+		  #pp "========================== ERROR ======================================="
+		else
+		  #... executes when no error
+		  ies = res.is_a?(Net::HTTPSuccess) ? JSON.parse(res.body) : []
+		ensure
+		  #... always executed
+		  #pp "============================= EXECUTE ALWAYS ====================================="
+		end
+	
+		# Add default option
+		ies.unshift({"id" => 0, "name" => t('profile.occupation.options.select')})
+	
+		@institutions = ies
+  end
+
 end

@@ -4,6 +4,7 @@ class UsersController < ApplicationController
   load_and_authorize_resource :except => [:current, :update_role]
 
   before_filter :authenticate_user!, only: :current
+  before_filter :get_institutions, only: [:show]
 
   respond_to :html, :xml, :js
   
