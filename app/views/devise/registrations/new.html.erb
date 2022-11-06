@@ -86,6 +86,15 @@
           </label>
         </div>
 
+        <div class="conditions">
+          <label>
+            <input type="checkbox" id="inlineCheckbox1" required="required" title="You need to accept the Terms and Conditions to create your account" value="option1">
+            <span class="lbl padding-0">
+              Me comprometo a usar este repositorio exclusivamente con fines académicos y educativos. Si llego a faltar este compromiso, mi cuenta y todos mis recursos serán eliminados.
+            </span>
+          </label>
+        </div>
+
         <div class="action">
           <%= f.submit t('action.accept').capitalize, :class => "btn btn-primary pull-right" %>
         </div>
