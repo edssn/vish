@@ -2,6 +2,7 @@ class RegistrationsController < Devise::RegistrationsController
   skip_before_filter :store_location
   after_filter :process_course_enrolment, :only =>[:create]
   before_filter :check_captcha, only: [:create]
+  before_filter :get_institutions, only: [:new]
 
   # GET /resource/sign_up
   def new
@@ -10,23 +11,25 @@ class RegistrationsController < Devise::RegistrationsController
 
   # POST /resource
   def create
-      #Infer user language from client information
-      if !I18n.locale.nil? and !params[:user].nil? and (params[:user][:language].blank? or !I18n.available_locales.include?(params[:user][:language].to_sym)) and I18n.available_locales.include?(I18n.locale.to_sym)
-        params[:user] ||= {}
-        params[:user][:language] = I18n.locale.to_s
+    pp params[:user] 
+    #Infer user language from client information
+    if !I18n.locale.nil? and !params[:user].nil? and (params[:user][:language].blank? or !I18n.available_locales.include?(params[:user][:language].to_sym)) and I18n.available_locales.include?(I18n.locale.to_sym)
+      params[:user] ||= {}
+      params[:user][:language] = I18n.locale.to_s
+    end
+
+    if params[:course].present?
+      @course = Course.find_by_id(params[:course])
+
+      if @course and @course.restricted && ((@course.has_password? && params[:course_password]!=@course.restriction_password) || (@course.restriction_email.present? && !(params[:user][:email].ends_with? @course.restriction_email)) )
+        flash.now[:alert] = t("course.flash.bad_credentials")
+        build_resource
+        render :new and return
       end
+    end
 
-      if params[:course].present?
-        @course = Course.find_by_id(params[:course])
-
-        if @course and @course.restricted && ((@course.has_password? && params[:course_password]!=@course.restriction_password) || (@course.restriction_email.present? && !(params[:user][:email].ends_with? @course.restriction_email)) )
-          flash.now[:alert] = t("course.flash.bad_credentials")
-          build_resource
-          render :new and return
-        end
-      end
-
-      super
+    super
+    #render :new
   end
 
   # GET /resource/edit
@@ -81,6 +84,33 @@ class RegistrationsController < Devise::RegistrationsController
         @course.users << current_user
         CourseNotificationMailer.user_welcome_email(current_user, @course)
     end
+  end
+
+  def sign_up_params
+    params.require(:user).permit(:email, :password, :password_confirmation)
+  end
+
+  def get_institutions
+    ies = []
+    begin
+      #... process, may raise an exception
+      uri = URI('https://jsonplaceholder.typicode.com/users')
+      res = Net::HTTP.get_response(uri)
+    rescue
+      #... error handler
+      #pp "========================== ERROR ======================================="
+    else
+      #... executes when no error
+      ies = res.is_a?(Net::HTTPSuccess) ? JSON.parse(res.body) : []
+    ensure
+      #... always executed
+      #pp "============================= EXECUTE ALWAYS ====================================="
+    end
+
+    # Add default option
+    ies.unshift({"id" => 0, "name" => t('profile.occupation.options.select')})
+
+    @institutions = ies
   end
 
 end

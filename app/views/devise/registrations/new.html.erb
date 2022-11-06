@@ -23,15 +23,26 @@
         <%= f.text_field :email, :class => "form-control", :autocomplete => "off" %>
 
         <%= f.label :password %>
-
         <%= f.password_field :password, :class => "form-control", :id => "devise_password", :autocomplete => "off" %>
 
         <%= f.label :password_confirmation %>
         <%= f.password_field :password_confirmation, :class => "form-control", :autocomplete => "off" %>
 
         <%= f.label t('profile.occupation.label') %>
-        <%= f.select(:occupation, options_for_select([[t('profile.occupation.options.select'), 0], [t('profile.occupation.options.teacher'), 1], [t('profile.occupation.options.scientist'), 2], [t('profile.occupation.options.other'), 3]], params[:user] ? params[:user][:occupation] : nil)) %>
+        <%= f.select(:occupation, options_for_select(
+          [[t('profile.occupation.options.select'), 0], [t('profile.occupation.options.teacher'), 1], 
+            [t('profile.occupation.options.scientist'), 2], [t('profile.occupation.options.other'), 3]], 
+            params[:user] ? params[:user][:occupation] : nil), {}, class: "form-control") 
+        %>
 
+        <%= f.label "Institución de Educación" %>
+        <%# <%= f.select :occupation, @institutions.map { |t| [t["name"], t["id"]]}, {}, class: "form-control" %>
+        <%= f.select(:institution, options_for_select(
+            @institutions.map { |t| [t["name"], t["id"]]}, 
+            params[:user] ? params[:user][:institution] : nil
+          ), {}, class: "form-control") 
+        %>
+        
         <%= f.label t('activerecord.attributes.user.tag') %>
         <div class="tagBoxNew">
           <ul class="tagList">

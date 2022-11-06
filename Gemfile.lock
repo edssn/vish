@@ -1,5 +1,5 @@
 GIT
-  remote: git://github.com/agordillo/scorm.git
+  remote: https://github.com/agordillo/scorm.git
   revision: b3d47f9c90ea2f314859b0e92fd30113775f2613
   branch: master
   specs:
@@ -7,7 +7,7 @@ GIT
       rubyzip (>= 1.0.0)
 
 GIT
-  remote: git://github.com/ebarra/oai_repository.git
+  remote: https://github.com/ebarra/oai_repository.git
   revision: 26e791e05f76295b144568fef8033446c2ad01e9
   specs:
     oai_repository (0.9.5)
@@ -15,14 +15,14 @@ GIT
       rails (~> 3.1)
 
 GIT
-  remote: git://github.com/ebarra/paperclip-ffmpeg.git
+  remote: https://github.com/ebarra/paperclip-ffmpeg.git
   revision: 338fd7a74a03aa87c9278f20e7fa49f77cfc3dcd
   specs:
     paperclip-ffmpeg (1.0.1)
       paperclip (>= 2.5.2)
 
 GIT
-  remote: git://github.com/ging/social_stream.git
+  remote: https://github.com/ging/social_stream.git
   revision: 6e4341c64ae3a470acd0ab29c48d2d72fd6fdd08
   ref: 6e4341c64ae3a470acd0ab29c48d2d72fd6fdd08
   branch: vish
@@ -68,27 +68,23 @@ GIT
     social_stream-linkser (2.2.1)
       linkser (~> 0.0.12)
       social_stream-base (~> 2.2.2)
-    social_stream-ostatus (2.2.1)
-      nokogiri (> 1.4.4)
-      proudhon (>= 0.3.6)
-      social_stream-base (~> 2.2.2)
 
 GIT
-  remote: git://github.com/mojombo/god.git
+  remote: https://github.com/mojombo/god.git
   revision: 92c06aa5f6293cf26498a306e9bb7ac856d7dca0
   ref: 92c06aa5f6293cf26498a306e9bb7ac856d7dca0
   specs:
     god (0.13.7)
 
 GIT
-  remote: git://github.com/pahanix/delegates_attributes_to.git
+  remote: https://github.com/pahanix/delegates_attributes_to.git
   revision: 69704cb6268c521e0e48ccb8d8b78930d1e7da67
   ref: 69704cb
   specs:
     delegates_attributes_to (0.0.1)
 
 GIT
-  remote: git://github.com/rails/rails.git
+  remote: https://github.com/rails/rails.git
   revision: 54ebd0aea2e68048167b329196674887430d06a5
   branch: 3-2-stable
   specs:
@@ -136,7 +132,7 @@ GIT
       thor (>= 0.14.6, < 2.0)
 
 GIT
-  remote: git://github.com/randym/acts_as_xlsx.git
+  remote: https://github.com/randym/acts_as_xlsx.git
   revision: 919817e590b1cf8e27632e630469603c78a50402
   ref: 919817e590b1cf8e27632e630469603c78a50402
   specs:
@@ -352,10 +348,6 @@ GEM
     pg (0.17.1)
     polyglot (0.3.5)
     power_assert (0.2.7)
-    proudhon (0.3.7)
-      json
-      nokogiri
-      rest-client
     pry (0.9.12.6)
       coderay (~> 1.0)
       method_source (~> 0.8)
@@ -544,12 +536,8 @@ DEPENDENCIES
   social_stream-documents!
   social_stream-events!
   social_stream-linkser!
-  social_stream-ostatus!
   sqlite3 (= 1.3.9)
   test-unit (= 3.0.9)
   thinking-sphinx (= 2.0.14)
   uglifier (= 1.2.3)
   unicorn (= 4.8.3)
-
-BUNDLED WITH
-   1.16.6
