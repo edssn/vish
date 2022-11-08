@@ -428,6 +428,10 @@ nl:
         scientist: "Wetenschappen"
         teacher: "Onderwijs"
         other: "Overig"
+    institution:
+      label: "Onderwijsinstelling"
+      options:
+        select: "Selecteren"
   quiz:
     modal:
       main_title: "Leerlingen denken... (antwoorden in percentages)"

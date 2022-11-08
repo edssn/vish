@@ -911,6 +911,10 @@ es:
         scientist: "Ciencia"
         select: "Selecciona tu ocupación"
         teacher: "Educación"
+    institution:
+      label: "Institución Educativa"
+      options:
+        select: "Selecciona"
     remove: "Borrar usuario"
     tags:
       default: "VisHub, virtual, excursión"

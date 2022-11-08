@@ -126,9 +126,9 @@ class ApplicationController < ActionController::Base
 		  #... always executed
 		  #pp "============================= EXECUTE ALWAYS ====================================="
 		end
-	
+    
 		# Add default option
-		ies.unshift({"id" => 0, "name" => t('profile.occupation.options.select')})
+		ies.unshift({"id" => 0, "name" => t('profile.institution.options.select')})
 	
 		@institutions = ies
   end

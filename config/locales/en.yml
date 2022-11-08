@@ -931,6 +931,10 @@ en:
         teacher: "Education"
         other: "Other"
       select: "Select your occupation"
+    institution:
+      label: "Educational Institution"
+      options:
+        select: "Select"
     remove: "Remove user"
     tags:
       default: "VisHub, virtual, excursion"

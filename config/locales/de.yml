@@ -511,6 +511,10 @@ de:
         scientist: "Wissenschaft"
         teacher: "Bildung"
         other: "Andere"
+    institution:
+      label: "Bildungseinrichtung"
+      options:
+        select: "Auswählen"
   project: "Global Excursion"
   quiz:
     actions:

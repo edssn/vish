@@ -35,7 +35,7 @@
             params[:user] ? params[:user][:occupation] : nil), {}, class: "form-control") 
         %>
 
-        <%= f.label "Institución de Educación" %>
+        <%= f.label t('profile.institution.label') %>
         <%# <%= f.select :occupation, @institutions.map { |t| [t["name"], t["id"]]}, {}, class: "form-control" %>
         <%= f.select(:institution, options_for_select(
             @institutions.map { |t| [t["name"], t["id"]]}, 

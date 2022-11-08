@@ -207,11 +207,14 @@ fr:
     search_name: "mise à jour du statut"
   profile:
     occupation:
-      label: "Profession"
       other: "Autre"
       scientist: "Scientifique"
       select: "Sélectionnez votre profession"
       teacher: "Enseignant"
+    institution:
+      label: "Établissement D'enseignement"
+      options:
+        select: "Sélectionnez"
     tags:
       default: "VisHub, virtuel, excursion"
       other: "Centres d'intérêt"
@@ -441,6 +444,7 @@ fr:
       other: "Documents"
   profile:
     occupation:
+      label: "Profession"
       options:
         select: "Sélectionner"
         scientist: "Sciences"

@@ -451,6 +451,10 @@ hu:
         scientist: "Tudományos"
         teacher: "Oktatás"
         other: "Egyéb"
+    institution:
+      label: "Oktatási Intézmény"
+      options:
+        select: "Válassza..."
   project: "Global Excursion"
   quiz:
     actions:
