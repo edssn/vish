@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20221106041738) do
+ActiveRecord::Schema.define(:version => 20221114161033) do
 
   create_table "activities", :force => true do |t|
     t.integer  "activity_verb_id"
@@ -296,6 +296,7 @@ ActiveRecord::Schema.define(:version => 20221106041738) do
     t.string   "file_content_type"
     t.string   "file_file_size"
     t.boolean  "file_processing"
+    t.integer  "knowledge_area_id",  :default => 1, :null => false
   end
 
   add_index "documents", ["activity_object_id"], :name => "index_documents_on_activity_object_id"
@@ -321,6 +322,7 @@ ActiveRecord::Schema.define(:version => 20221106041738) do
     t.integer  "width",              :default => 470
     t.integer  "height",             :default => 353
     t.boolean  "live",               :default => false
+    t.integer  "knowledge_area_id",  :default => 1,     :null => false
   end
 
   create_table "events", :force => true do |t|
@@ -397,6 +399,12 @@ ActiveRecord::Schema.define(:version => 20221106041738) do
     t.string   "loresourceurl"
   end
 
+  create_table "knowledge_areas", :force => true do |t|
+    t.string   "key"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
   create_table "licenses", :force => true do |t|
     t.string   "key"
     t.datetime "created_at", :null => false
@@ -413,6 +421,7 @@ ActiveRecord::Schema.define(:version => 20221106041738) do
     t.integer  "width",              :default => 470
     t.integer  "height",             :default => 353
     t.boolean  "is_embed",           :default => false
+    t.integer  "knowledge_area_id",  :default => 1,     :null => false
   end
 
   add_index "links", ["activity_object_id"], :name => "index_links_on_activity_object_id"

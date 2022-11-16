@@ -51,4 +51,11 @@
     <%= select_tag(:license_id, resource_license_options_for_select(d.license_id,d.document?), :class => "resource_license") %>
   </section>
 
+  <!--KNOWLEDGE AREAS-->
+  <section class="knowledge_areas">
+    <label><%= t('document.info.knowledge_areas')%></label>
+    <br/>
+    <%= select_tag(:knowledge_area_id, resource_knowledge_area_options_for_select(d.license_id), :class => "resource_knowledge_areas") %>
+  </section>
+
 </div>

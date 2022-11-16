@@ -111,6 +111,16 @@
           <% end %>
         <% end %>
 
+        <!--knowledge area-->
+        <% unless resource.knowledge_area_id.nil? %>
+          <tr>
+            <td><span><%= t('document.info.knowledge_areas') %></span></td>
+            <td>
+              <%= KnowledgeArea.getknowledgeAreaName(resource.knowledge_area_id) %>
+            </td>
+          </tr>
+        <% end %>
+
         <!--contributors-->
         <% if resource.respond_to?("contributors") and !resource.contributors.blank? %>
           <tr>

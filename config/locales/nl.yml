@@ -75,6 +75,7 @@ nl:
       title: "Titel"
       description: "Beschrijving"
       tags: "Onderwerpen"
+      knowledge_areas: "Kennisgebied"
     language:
       option1: "(Niet taalafhankelijk)"
     leyend:
@@ -179,6 +180,18 @@ nl:
     languages:
       independent: "Taalonafhankelijk"
       other: "Overige"
+  knowledge_areas:
+      ka-administration-business: Administratie, Bedrijfsleven en Wetgeving 
+      ka-agriculture-forestry: Landbouw, bosbouw, visserij en diergeneeskunde
+      ka-arts-humanities: kunsten en menselijkheid
+      ka-physical-sciences: Exacte wetenschappen, natuurwetenschappen, wiskunde en statistiek
+      ka-social-sciences: Sociale wetenschappen, journalistiek en informatie
+      ka-education: Opleiding
+      ka-information-communication: Informatie en Communicatie (ICT) 
+      ka-engineering-industry: Techniek, Industrie en Bouw
+      ka-generic-programs: Algemene programma's en kwalificaties
+      ka-health-wellness: Gezondheid
+      ka-services: Diensten
   link:
     one: "link"
     other: "links"

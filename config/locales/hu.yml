@@ -73,6 +73,7 @@ hu:
         addMessage: "Címkék hozzáadása"
         limitMessage: "Elérted a maximálisan hozzáadható mennyiséget."
       age: "Korosztály"
+      knowledge_areas: "Tudásterület"
     recommended_age: "Ajánlott korosztály"
     recommended_age_detail: "%{min}-%{max} évig"
     input: "Adj hozzá leírást"
@@ -151,6 +152,18 @@ hu:
     languages:
       independent: "Nyelv független"
       other: "Others"
+  knowledge_areas:
+      ka-administration-business: Közigazgatás, üzlet és jogalkotás
+      ka-agriculture-forestry: Mezőgazdaság, Erdészet, Halászat és Állategészségügy
+      ka-arts-humanities: Művészetek és bölcsészettudományok
+      ka-physical-sciences: Fizikai tudományok, természettudományok, matematika és statisztika
+      ka-social-sciences: Társadalomtudományok, újságírás és információ
+      ka-education: Oktatás
+      ka-information-communication: Információ és kommunikáció (IKT)
+      ka-engineering-industry: Mérnöki, Ipari és Építőipari
+      ka-generic-programs: Általános programok és képesítések
+      ka-health-wellness: Egészség
+      ka-services: Szolgáltatások
   link:
     one: "link"
     other: "linkek"

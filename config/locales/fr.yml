@@ -71,6 +71,7 @@ fr:
         addMessage: "Ajouter des mots-clés"
         limitMessage: "limite atteinte"
       âge: "Âge"
+      knowledge_areas: "Domaine de la Connaissance"
     recommended_age: "Âge recommandé"
     recommended_age_detail: "De %{min} à %{max} ans"
     input: "Ajoutez une description ici"
@@ -151,6 +152,18 @@ fr:
     languages:
       independent: "Indépendant de la langue"
       other: Others
+  knowledge_areas:
+      ka-administration-business: Administration, affaires et législation
+      ka-agriculture-forestry: Agriculture, foresterie, pêche et vétérinaire
+      ka-arts-humanities: Arts et sciences humaines
+      ka-physical-sciences: Sciences physiques, sciences naturelles, mathématiques et statistique
+      ka-social-sciences: Sciences sociales, journalisme et information
+      ka-education: Éducation
+      ka-information-communication: Information et communication (TIC) 
+      ka-engineering-industry: Ingénierie, Industrie et Construction
+      ka-generic-programs: Programmes génériques et qualifications
+      ka-health-wellness: Santé
+      ka-services: Prestations de service
   link:
     one: "lien"
     other: "liens"

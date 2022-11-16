@@ -79,6 +79,12 @@ module ApplicationHelper
 		options_for_select(licenses.map{|l| [l.name,l.id] },selectedLicenseId)
 	end
 
+	def resource_knowledge_area_options_for_select(knowledgeAreaId)
+		selectedknowledgeAreaId = knowledgeAreaId || KnowledgeArea.default.id
+		knowledgeAreas = KnowledgeArea.all
+		options_for_select(knowledgeAreas.map{|k| [k.name,k.id] },selectedknowledgeAreaId)
+	end
+
 	def resource_licenses
 		License.all.select{|l| l.public? }.map{|l| [l.name,l.key] }
 	end

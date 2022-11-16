@@ -319,6 +319,35 @@ namespace :db do
         end
       end
 
+      #Usage
+      #Development:   bundle exec rake db:populate:create:knowledge_areas
+      #In production: bundle exec rake db:populate:create:knowledge_areas RAILS_ENV=production
+      desc "Create Knowledge Areas"
+      task :knowledge_areas => :environment do
+        SocialStream::Population.task 'Knowledge Areas population' do
+          knowledgeAreasKeys = []
+          knowledgeAreasKeys.push("ka-administration-business")
+          knowledgeAreasKeys.push("ka-agriculture-forestry")
+          knowledgeAreasKeys.push("ka-arts-humanities")
+          knowledgeAreasKeys.push("ka-physical-sciences")
+          knowledgeAreasKeys.push("ka-social-sciences")
+          knowledgeAreasKeys.push("ka-education")
+          knowledgeAreasKeys.push("ka-information-communication")
+          knowledgeAreasKeys.push("ka-engineering-industry")
+          knowledgeAreasKeys.push("ka-generic-programs")
+          knowledgeAreasKeys.push("ka-health-wellness")
+          knowledgeAreasKeys.push("ka-services")
+
+          knowledgeAreasKeys.each do |key|
+            if KnowledgeArea.find_by_key(key).nil?
+              l = KnowledgeArea.new
+              l.key = key
+              l.save!
+            end
+          end
+        end
+      end
+
     end
   end
 
@@ -483,6 +512,7 @@ namespace :db do
     Rake::Task["db:seed"].invoke
     Rake::Task["db:populate:create:roles"].invoke
     Rake::Task["db:populate:create:licenses"].invoke
+    Rake::Task["db:populate:create:knowledge_areas"].invoke
     Rake::Task["db:populate:create:current_site"].invoke
     Rake::Task["db:populate:create:demo_user"].invoke
     Rake::Task["db:populate:create:admin"].invoke

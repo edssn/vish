@@ -73,6 +73,7 @@ de:
         addMessage: "Tags dazufügen"
         limitMessage: "Limit erreicht"
       age: "Alter"
+      knowledge_areas: "Wissensgebiet"
     recommended_age: "Empfohlenes Alter"
     recommended_age_detail: "Von %{min} bis %{max} Jahre"
     input: "Füg hier eine Beschreibung dazu"
@@ -173,6 +174,18 @@ de:
     languages:
       independent: "Sprachunabhängig"
       other: "Andere"
+  knowledge_areas:
+      ka-administration-business: Verwaltung, Wirtschaft und Gesetzgebung
+      ka-agriculture-forestry: Landwirtschaft, Forstwirtschaft, Fischerei und Veterinärwesen
+      ka-arts-humanities: Kunst und Geisteswissenschaften
+      ka-physical-sciences: Physikalische Wissenschaften, Naturwissenschaften, Mathematik und Statistik
+      ka-social-sciences: Sozialwissenschaften, Journalismus und Information
+      ka-education: Ausbildung
+      ka-information-communication: Information und Kommunikation (IKT)
+      ka-engineering-industry: Maschinenbau, Industrie und Bauwesen
+      ka-generic-programs: Generische Programme und Qualifikationen
+      ka-health-wellness: Gesundheit
+      ka-services: Dienstleistungen
   link:
     one: "Link"
     other: "Links"
