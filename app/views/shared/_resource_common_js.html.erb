@@ -90,15 +90,17 @@
       $("#<%=form_id%> input[name='"+resource_type+"[language]']").val($("#<%=form_id%> select.language").val());
       //LICENSE
       $("#<%=form_id%> input[name='"+resource_type+"[license_id]']").val($("#<%=form_id%> .resource_license").val());
+      //KNOWLEDGE AREAS
+      $("#<%=form_id%> input[name='"+resource_type+"[knowledge_area_id]']").val($("#<%=form_id%> .resource_knowledge_areas").val());
       //AGE
       var value1 = $('#<%=form_id%> .age-slider').data('slider').getValue()[0];
       var value2 = $('#<%=form_id%> .age-slider').data('slider').getValue()[1];
       $('#<%=form_id%> input[name="'+resource_type+'[age_min]"]').val(value1);
       $('#<%=form_id%> input[name="'+resource_type+'[age_max]"]').val(value2);
 
-      //$(this).button('loading');
+      $(this).button('loading');
       //SUBMIT
-      //$("#<%=form_id%> input[value=<%= t('button.save') %>][type='submit'][name='commit'][class='"+resource_type+" hide']").click();
+      $("#<%=form_id%> input[value=<%= t('button.save') %>][type='submit'][name='commit'][class='"+resource_type+" hide']").click();
     }
   });
 

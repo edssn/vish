@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20221114161033) do
+ActiveRecord::Schema.define(:version => 20221116190112) do
 
   create_table "activities", :force => true do |t|
     t.integer  "activity_verb_id"
@@ -893,6 +893,7 @@ ActiveRecord::Schema.define(:version => 20221114161033) do
     t.datetime "updated_at"
     t.text     "fulltext"
     t.text     "plaintext"
+    t.integer  "knowledge_area_id",  :default => 1, :null => false
   end
 
   add_foreign_key "activities", "activity_verbs", :name => "index_activities_on_activity_verb_id"
