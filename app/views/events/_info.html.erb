@@ -32,6 +32,10 @@
           <td><span>Termina el: </span></td>
           <td id="end"><%= @event.end_at %></td>
         </tr>
+        <tr>
+          <td><span><%= t('document.info.knowledge_areas') %></span></td>
+            <td> <%= KnowledgeArea.getknowledgeAreaName(@event.knowledge_area_id) %> </td>
+        </tr>
       </table>
     </header>
 

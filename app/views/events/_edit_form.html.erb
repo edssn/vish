@@ -7,6 +7,7 @@
   <%= f.hidden_field :start_at, :id=>"edit_event_start_at" %>
   <%= f.hidden_field :end_at, :id=>"edit_event_end_at" %>
   <%= f.hidden_field :all_day, :id=>"edit_event_all_day" %>
+  <%= f.hidden_field :knowledge_area_id %>
 
   <!--TITULO-->
   <label><%= t('event.leyend.title')%></label>
@@ -26,6 +27,14 @@
       <%= f.radio_button :streaming, true, :id=>"edit_event_streaming_true" %> <span class="lbl padding-0"> <%= t('event.type.streaming') %> </span>
    </label>
   </div>
+
+  <!--KNOWLEDGE AREAS-->
+  <section class="knowledge_areas">
+    <br/>
+    <label><%= t('document.info.knowledge_areas')%></label>
+    <%= select_tag(:knowledge_area_id, resource_knowledge_area_options_for_select(@event.knowledge_area_id), :class => "resource_knowledge_areas") %>
+  </section>
+
   <!--EMBED-->
   </br>
   <label><%= t('document.options.embed')%></label>
@@ -138,6 +147,8 @@
           //$("#event input[name='event[end_at]']").val($("#event input[name='event_day']").val() + " " + $("#event input[name='event_end_time']").val());
           $("#event input[name='event[end_at]']").val(new Date(Date.parse($("#event input[name='event_day']").val().replace(/-/g,"/") + " " + $("#event input[name='event_end_time']").val())).toUTCString());
           }
+          //KNOWLEDGE AREA
+          $("#event input[name='event[knowledge_area_id]']").val( $("#event .resource_knowledge_areas").val() );
           $(saveEventButton).click();
         }
       });
