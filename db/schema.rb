@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20221117045632) do
+ActiveRecord::Schema.define(:version => 20221117051023) do
 
   create_table "activities", :force => true do |t|
     t.integer  "activity_verb_id"
@@ -312,7 +312,7 @@ ActiveRecord::Schema.define(:version => 20221117045632) do
     t.boolean  "draft",              :default => true
     t.datetime "created_at",                           :null => false
     t.datetime "updated_at",                           :null => false
-    t.integer  "knowledge_area_id",  :default => 0,    :null => false
+    t.integer  "knowledge_area_id",  :default => 1,    :null => false
   end
 
   create_table "embeds", :force => true do |t|
@@ -369,7 +369,7 @@ ActiveRecord::Schema.define(:version => 20221117045632) do
     t.datetime "attachment_updated_at"
     t.boolean  "notified_teacher",        :default => false
     t.datetime "scorm12_timestamp"
-    t.integer  "knowledge_area_id",       :default => 0,     :null => false
+    t.integer  "knowledge_area_id",       :default => 1,     :null => false
   end
 
   create_table "groups", :force => true do |t|
