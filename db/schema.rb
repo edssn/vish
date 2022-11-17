@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20221116190112) do
+ActiveRecord::Schema.define(:version => 20221117025959) do
 
   create_table "activities", :force => true do |t|
     t.integer  "activity_verb_id"
@@ -885,6 +885,7 @@ ActiveRecord::Schema.define(:version => 20221116190112) do
     t.string   "banner_content_type"
     t.integer  "banner_file_size"
     t.datetime "banner_updated_at"
+    t.integer  "knowledge_area_id",   :default => 1,    :null => false
   end
 
   create_table "writings", :force => true do |t|
