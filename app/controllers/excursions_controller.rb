@@ -98,6 +98,9 @@ class ExcursionsController < ApplicationController
     params[:excursion].permit!
     @excursion = Excursion.new(params[:excursion])
 
+    # Knowledge Area
+    @excursion.knowledge_area_id = get_knowledge_area_id(params[:excursion][:json])
+
     if(params[:draft] and params[:draft] == "true")
       @excursion.draft = true
     else
@@ -132,6 +135,9 @@ class ExcursionsController < ApplicationController
     end
 
     isAdmin = current_subject.admin?
+
+    # Knowledge Area
+    @excursion.knowledge_area_id = get_knowledge_area_id(params[:excursion][:json])
 
     begin
       Excursion.record_timestamps=false if isAdmin
@@ -447,6 +453,30 @@ class ExcursionsController < ApplicationController
         excursion_path = excursion_path(@excursion) #TODO get full path
         TeacherNotificationMailer.notify_teacher(teacher, pupil, excursion_path)
       end
+  end
+
+  def get_knowledge_area_id(json)
+    # Default values
+    knowledge_area_key = 'ka-administration-business'
+    knowledge_area_id = 0
+
+    # Get knowledge area key from params
+    begin
+      knowledge_area_key = JSON.parse(params[:excursion][:json])['knowledgeArea']['key']
+    rescue
+      knowledge_area_key = 'ka-administration-business'
+    end
+
+    # Get knowledge area id from db
+    begin
+      area = KnowledgeArea.find_by_key(knowledge_area_key)
+    rescue
+      knowledge_area_id = 0
+    else
+      knowledge_area_id = area.id
+    end
+
+    knowledge_area_id
   end
 
 end
