@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20221117051023) do
+ActiveRecord::Schema.define(:version => 20221127170709) do
 
   create_table "activities", :force => true do |t|
     t.integer  "activity_verb_id"
@@ -648,6 +648,7 @@ ActiveRecord::Schema.define(:version => 20221117051023) do
     t.string   "lohref"
     t.string   "loresourceurl"
     t.text     "lohrefs"
+    t.integer  "knowledge_area_id",  :default => 1,   :null => false
   end
 
   create_table "service_permissions", :force => true do |t|
