@@ -33,7 +33,8 @@ class SearchController < ApplicationController
           @search_result.compact
         )
 
-        render :json => json_obj.to_json(helper: self)
+        # render :json => json_obj.to_json(helper: self,:include => :author)
+        render :json => render_json_result(@search_result)
       }
 
       format.js
@@ -180,6 +181,49 @@ class SearchController < ApplicationController
     return models
   end
   
+  def render_json_result (records)
+    result = [];
+    records.each do |e|
+
+        url = ""
+        if e.avatar_file_name.nil?
+          if e.activity_object.object_type == "Event"
+            url = "http://#{Rails.configuration.domain}/assets/items/rec2.jpg"
+          elsif e.activity_object.object_type == "Excursion"
+            url = e.thumbnail_url
+          elsif e.activity_object.object_type == "EdiphyDocument"
+            document = JSON.parse(e.json)
+            url = document["present"]["globalConfig"]["thumbnail"] 
+          end
+        else
+          url = "http://#{Rails.configuration.domain}/activity_objects/avatar/#{e.activity_object_id}.png?style=500"
+        end
+
+        obj = {
+          entity_id: e.id,
+          activity_object_id: e.activity_object_id, 
+          activity_object_title: e.activity_object.title,
+          activity_object_type: e.activity_object.object_type,
+          activity_object_visit_count: e.activity_object.visit_count,
+          activity_object_like_count: e.activity_object.like_count,
+          author_id: e.author.id,
+          author_name: e.author.name,
+          avatar_url: url,
+        }
+
+        #pp e
+        #puts "\n"
+        #pp e.activity_object_id
+        #pp e.activity_object
+        # puts "\n"
+        # pp e.author_id
+        # pp e.author
+        #pp '=============================================================='
+        #puts "\n\n\n" 
+        result.push(obj)
+    end
+    return result
+  end
 end
 
           
