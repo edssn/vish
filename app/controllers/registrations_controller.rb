@@ -2,7 +2,7 @@ class RegistrationsController < Devise::RegistrationsController
   skip_before_filter :store_location
   after_filter :process_course_enrolment, :only =>[:create]
   before_filter :check_captcha, only: [:create]
-  before_filter :get_institutions, only: [:new]
+  before_filter :get_institutions, only: [:new, :create]
 
   # GET /resource/sign_up
   def new
