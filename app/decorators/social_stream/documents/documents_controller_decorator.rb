@@ -9,9 +9,14 @@ DocumentsController.class_eval do
 
   def create
     super do |format|
+
       #Check if the Zipfile contains a Web Application or a SCORM Package to create the new resource and redirect to it.
       if resource.is_a? Zipfile
         newResource = resource.getResourceAfterSave
+        
+        # Save knowledge_area in activity_objects table
+        update_knowledge_area_id newResource.activity_object_id, params[:document][:knowledge_area_id]
+        
         if newResource.is_a? String
           #Raise error
           flash.now[:alert] = newResource
@@ -25,6 +30,9 @@ DocumentsController.class_eval do
         end
         return
       end
+
+      # Save knowledge_area in activity_objects table
+      update_knowledge_area_id resource.activity_object_id, params[:document][:knowledge_area_id]
       
       format.json {
         jsonResult = resource.to_json(helper: self)
@@ -52,6 +60,12 @@ DocumentsController.class_eval do
     update! do |success, failure|
       failure.html { render :action => :show }
       success.html {
+
+        # update knowledge_area in activity_objects table
+        type = resource.class.name.downcase
+        update_knowledge_area_id resource.activity_object_id, params[type][:knowledge_area_id]
+        resource.activity_object.knowledge_area_id = params[type][:knowledge_area_id]
+
         if params[:controller] == "pictures"
           redirect_to request.referer
         else

@@ -4,6 +4,7 @@ ActivityObject.class_eval do
   has_many :spam_reports
   has_and_belongs_to_many :wa_resources_galleries
   belongs_to :license
+  belongs_to :knowledge_area
   has_one :lo_interaction
   has_many :contest_submissions
   has_many :contest_categories, :through => :contest_submissions

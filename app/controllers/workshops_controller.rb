@@ -58,6 +58,10 @@ class WorkshopsController < ApplicationController
 
   def create
     super do |format|
+
+      # save knowledge_area in activity_objects table
+      update_knowledge_area_id resource.activity_object_id, params[:workshop][:knowledge_area_id]
+
       format.html {
         if resource.new_record?
           render action: :new
@@ -86,6 +90,12 @@ class WorkshopsController < ApplicationController
     wasDraft = resource.draft
 
     super do |format|
+
+      # update knowledge_area in activity_objects table
+      if params[:workshop][:knowledge_area_id].present? 
+        update_knowledge_area_id resource.activity_object_id, params[:workshop][:knowledge_area_id]
+      end
+
       format.html {
         if resource.draft
           redirect_to edit_workshop_path(resource)

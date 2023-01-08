@@ -133,4 +133,11 @@ class ApplicationController < ActionController::Base
 		@institutions = ies
   end
 
+  # save knowledge_area in activity_objects table
+  def update_knowledge_area_id (activity_object_id, knowledge_area_id)
+    ao = ActivityObject.find_by_id(activity_object_id)
+    ao.knowledge_area_id = knowledge_area_id
+    ao.save!
+  end
+
 end

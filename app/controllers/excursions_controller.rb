@@ -100,6 +100,7 @@ class ExcursionsController < ApplicationController
 
     # Knowledge Area
     @excursion.knowledge_area_id = get_knowledge_area_id(params[:excursion][:json])
+    @excursion.activity_object.knowledge_area_id = get_knowledge_area_id(params[:excursion][:json])
 
     if(params[:draft] and params[:draft] == "true")
       @excursion.draft = true
@@ -138,6 +139,7 @@ class ExcursionsController < ApplicationController
 
     # Knowledge Area
     @excursion.knowledge_area_id = get_knowledge_area_id(params[:excursion][:json])
+    @excursion.activity_object.knowledge_area_id = get_knowledge_area_id(params[:excursion][:json])
 
     begin
       Excursion.record_timestamps=false if isAdmin
@@ -471,7 +473,7 @@ class ExcursionsController < ApplicationController
     begin
       area = KnowledgeArea.find_by_key(knowledge_area_key)
     rescue
-      knowledge_area_id = 0
+      knowledge_area_id = 1
     else
       knowledge_area_id = area.id
     end

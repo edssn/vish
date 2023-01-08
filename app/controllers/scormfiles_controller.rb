@@ -26,8 +26,18 @@ class ScormfilesController < ApplicationController
     end
   end
 
+  def create
+    super
+
+    # save knowledge_area in activity_objects table
+    update_knowledge_area_id resource.activity_object_id, params[:document][:knowledge_area_id]
+  end
+
   def update
     super
+
+    # update knowledge_area in activity_objects table
+    update_knowledge_area_id resource.activity_object_id, params[:scormfile][:knowledge_area_id]
   end
 
   def destroy
@@ -42,7 +52,7 @@ class ScormfilesController < ApplicationController
   private
 
   def allowed_params
-    [:lourl,  :lopath, :zipurl, :zippath, :width, :height, :language, :license_id, :original_author, :license_attribution, :license_custom, :age_min, :age_max, :scope, :avatar, :tag_list=>[]]
+    [:lourl,  :lopath, :zipurl, :zippath, :width, :height, :language, :license_id, :knowledge_area_id, :original_author, :license_attribution, :license_custom, :age_min, :age_max, :scope, :avatar, :tag_list=>[]]
   end
   
 end

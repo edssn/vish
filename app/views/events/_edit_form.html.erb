@@ -32,7 +32,7 @@
   <section class="knowledge_areas">
     <br/>
     <label><%= t('document.info.knowledge_areas')%></label>
-    <%= select_tag(:knowledge_area_id, resource_knowledge_area_options_for_select(@event.knowledge_area_id), :class => "resource_knowledge_areas") %>
+    <%= select_tag(:knowledge_area_id, resource_knowledge_area_options_for_select(@event.activity_object.knowledge_area_id), :class => "resource_knowledge_areas") %>
   </section>
 
   <!--EMBED-->

@@ -43,6 +43,10 @@ class EmbedsController < ApplicationController
     end
     
     super do |format|
+
+      # Save knowledge_area in activity_objects table
+      update_knowledge_area_id resource.activity_object_id, params[:embed][:knowledge_area_id]
+
       format.json {
         render :json => resource
       }
@@ -73,6 +77,10 @@ class EmbedsController < ApplicationController
 
   def update
     super do |format|
+
+      # update knowledge_area in activity_objects table
+      update_knowledge_area_id resource.activity_object_id, params[:embed][:knowledge_area_id]
+
       format.json { render :json => resource }
       format.js { render }
       format.all {

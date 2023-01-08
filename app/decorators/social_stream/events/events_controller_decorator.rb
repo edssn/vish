@@ -8,6 +8,20 @@ EventsController.class_eval do
       }
     end
   end
+
+  def create
+    super
+
+    # save knowledge_area in activity_objects table
+    update_knowledge_area_id resource.activity_object_id, params[:event][:knowledge_area_id]
+  end
+
+  def update
+    super
+
+    # update knowledge_area in activity_objects table
+    update_knowledge_area_id resource.activity_object_id, params[:event][:knowledge_area_id]
+  end
   
   def allowed_params
     [

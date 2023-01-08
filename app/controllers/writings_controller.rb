@@ -9,6 +9,10 @@ class WritingsController < ApplicationController
 
   def create
     super do |format|
+
+      # Save knowledge_area_id 
+      update_knowledge_area_id resource.activity_object_id, params[:writing][:knowledge_area_id]
+      
       format.json { 
         render :json => resource 
       }
@@ -25,6 +29,9 @@ class WritingsController < ApplicationController
 
   def update
     super
+
+    # update knowledge_area in activity_objects table
+    update_knowledge_area_id resource.activity_object_id, params[:writing][:knowledge_area_id]
   end
 
   def destroy
