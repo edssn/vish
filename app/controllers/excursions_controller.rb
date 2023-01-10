@@ -99,7 +99,7 @@ class ExcursionsController < ApplicationController
     @excursion = Excursion.new(params[:excursion])
 
     # Knowledge Area
-    @excursion.knowledge_area_id = get_knowledge_area_id(params[:excursion][:json])
+    # @excursion.knowledge_area_id = get_knowledge_area_id(params[:excursion][:json])
     @excursion.activity_object.knowledge_area_id = get_knowledge_area_id(params[:excursion][:json])
 
     if(params[:draft] and params[:draft] == "true")

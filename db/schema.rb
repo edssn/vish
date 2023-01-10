@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20221127170709) do
+ActiveRecord::Schema.define(:version => 20230110194216) do
 
   create_table "activities", :force => true do |t|
     t.integer  "activity_verb_id"
@@ -109,6 +109,7 @@ ActiveRecord::Schema.define(:version => 20221127170709) do
     t.decimal  "reviewers_qscore_loriam",                   :precision => 12, :scale => 6
     t.integer  "reviewers_qscore_loriam_int"
     t.boolean  "harvested",                                                                :default => false
+    t.integer  "knowledge_area_id",                                                        :default => 1
   end
 
   create_table "activity_objects_wa_resources_galleries", :id => false, :force => true do |t|
@@ -296,7 +297,6 @@ ActiveRecord::Schema.define(:version => 20221127170709) do
     t.string   "file_content_type"
     t.string   "file_file_size"
     t.boolean  "file_processing"
-    t.integer  "knowledge_area_id",  :default => 1, :null => false
   end
 
   add_index "documents", ["activity_object_id"], :name => "index_documents_on_activity_object_id"
@@ -312,7 +312,6 @@ ActiveRecord::Schema.define(:version => 20221127170709) do
     t.boolean  "draft",              :default => true
     t.datetime "created_at",                           :null => false
     t.datetime "updated_at",                           :null => false
-    t.integer  "knowledge_area_id",  :default => 1,    :null => false
   end
 
   create_table "embeds", :force => true do |t|
@@ -323,7 +322,6 @@ ActiveRecord::Schema.define(:version => 20221127170709) do
     t.integer  "width",              :default => 470
     t.integer  "height",             :default => 353
     t.boolean  "live",               :default => false
-    t.integer  "knowledge_area_id",  :default => 1,     :null => false
   end
 
   create_table "events", :force => true do |t|
@@ -342,7 +340,6 @@ ActiveRecord::Schema.define(:version => 20221127170709) do
     t.integer  "interval_flag",      :default => 0
     t.boolean  "streaming",          :default => false
     t.text     "embed"
-    t.integer  "knowledge_area_id",  :default => 1,     :null => false
   end
 
   add_index "events", ["room_id"], :name => "index_events_on_room_id"
@@ -369,7 +366,6 @@ ActiveRecord::Schema.define(:version => 20221127170709) do
     t.datetime "attachment_updated_at"
     t.boolean  "notified_teacher",        :default => false
     t.datetime "scorm12_timestamp"
-    t.integer  "knowledge_area_id",       :default => 1,     :null => false
   end
 
   create_table "groups", :force => true do |t|
@@ -424,7 +420,6 @@ ActiveRecord::Schema.define(:version => 20221127170709) do
     t.integer  "width",              :default => 470
     t.integer  "height",             :default => 353
     t.boolean  "is_embed",           :default => false
-    t.integer  "knowledge_area_id",  :default => 1,     :null => false
   end
 
   add_index "links", ["activity_object_id"], :name => "index_links_on_activity_object_id"
@@ -648,7 +643,6 @@ ActiveRecord::Schema.define(:version => 20221127170709) do
     t.string   "lohref"
     t.string   "loresourceurl"
     t.text     "lohrefs"
-    t.integer  "knowledge_area_id",  :default => 1,   :null => false
   end
 
   create_table "service_permissions", :force => true do |t|
@@ -889,7 +883,6 @@ ActiveRecord::Schema.define(:version => 20221127170709) do
     t.string   "banner_content_type"
     t.integer  "banner_file_size"
     t.datetime "banner_updated_at"
-    t.integer  "knowledge_area_id",   :default => 1,    :null => false
   end
 
   create_table "writings", :force => true do |t|
@@ -898,7 +891,6 @@ ActiveRecord::Schema.define(:version => 20221127170709) do
     t.datetime "updated_at"
     t.text     "fulltext"
     t.text     "plaintext"
-    t.integer  "knowledge_area_id",  :default => 1, :null => false
   end
 
   add_foreign_key "activities", "activity_verbs", :name => "index_activities_on_activity_verb_id"
