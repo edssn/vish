@@ -111,26 +111,69 @@ class ApplicationController < ActionController::Base
 
   ## Get Institutions
   def get_institutions
-		ies = []
-		begin
-		  #... process, may raise an exception
-		  uri = URI('https://jsonplaceholder.typicode.com/users')
-		  res = Net::HTTP.get_response(uri)
-		rescue
-		  #... error handler
-		  #pp "========================== ERROR ======================================="
-		else
-		  #... executes when no error
-		  ies = res.is_a?(Net::HTTPSuccess) ? JSON.parse(res.body) : []
-		ensure
-		  #... always executed
-		  #pp "============================= EXECUTE ALWAYS ====================================="
-		end
+		# ies = []
+		# begin
+		#   #... process, may raise an exception
+		#   uri = URI('https://jsonplaceholder.typicode.com/users')
+		#   res = Net::HTTP.get_response(uri)
+		# rescue
+		#   #... error handler
+		#   #pp "========================== ERROR ======================================="
+		# else
+		#   #... executes when no error
+		#   ies = res.is_a?(Net::HTTPSuccess) ? JSON.parse(res.body) : []
+		# ensure
+		#   #... always executed
+		#   #pp "============================= EXECUTE ALWAYS ====================================="
+		# end
     
-		# Add default option
-		ies.unshift({"id" => 0, "name" => t('profile.institution.options.select')})
-	
-		@institutions = ies
+		# # Add default option
+		# ies.unshift({"id" => 0, "name" => t('profile.institution.options.select')})
+
+
+
+    # pp Vish::Application.config.sic_user
+    # pp Vish::Application.config.sic_pass
+    # pp Vish::Application.config.sic_auth_url
+    # pp Vish::Application.config.sic_ies_url
+    
+    #Get Auth token
+    res = Net::HTTP.post_form(
+      URI(Vish::Application.config.sic_auth_url), 
+      'identifier' => Vish::Application.config.sic_user, 
+      'password' => Vish::Application.config.sic_pass
+    )
+    sic_token = '-'
+    if res.is_a?(Net::HTTPSuccess)
+      sic_token = JSON.parse(res.body)['jwt'].nil? ? "-" : JSON.parse(res.body)['jwt']
+    end
+
+    #Get institutions
+    uri = URI(Vish::Application.config.sic_ies_url)
+    http = Net::HTTP.new(uri.host, uri.port)
+    http.use_ssl = true
+    request = Net::HTTP::Get.new(uri.request_uri)
+    request['authorization'] = "Bearer #{sic_token}"
+    res = http.request(request)
+    data = res.is_a?(Net::HTTPSuccess) ? JSON.parse(res.body) : []
+
+    #Get only institution name and id
+    ies = []
+    data.each do |element|
+      if !element['paquete_cedia'].nil? || (element['red_avanzadas'].nil? && element['red_avanzadas'].length)
+        # puts "Id:  #{n['id']}"
+        # puts "Nombre:  #{n['nombre']}"
+        # puts "Nombre Completo:  #{n['nombre_completo']}"
+        # puts "Paquete Cedia:  #{!n['paquete_cedia'].nil?}"
+        # puts "Red Avanzadas:  #{n['red_avanzadas'].length}"
+        
+        ist = {"id" => element['id'], "name" => "#{element['nombre']} (#{element['nombre_completo']})" }
+        ies.push(ist)
+      end
+    end
+
+    #Sort and return
+		@institutions = ies.sort_by { |element| element['name'] }
   end
 
   # save knowledge_area in activity_objects table

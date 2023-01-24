@@ -19,6 +19,9 @@ module Vish
         resource '*', headers: :any, methods: [:get, :post, :options]
       end
     end
+
+    # config.sicuser = "roauser"
+    # pp config.sicuser
     
     #DISABLE SSL VERIFY - UBUNTU 14 DOES NOT VERIFY CA LETSENCRYPT ETC
     OpenSSL::SSL::VERIFY_PEER = OpenSSL::SSL::VERIFY_NONE
@@ -184,6 +187,12 @@ module Vish
 
     #Search engine
     config.max_matches = ThinkingSphinx::Configuration.instance.configuration.searchd.max_matches || 10000
+
+    #Sic Credentials
+    config.sic_user = (config.APP_CONFIG['sic_user'].nil? ? "sic_user" : config.APP_CONFIG['sic_user'])
+    config.sic_pass = (config.APP_CONFIG['sic_pass'].nil? ? "sic_pass" : config.APP_CONFIG['sic_pass'])
+    config.sic_auth_url = (config.APP_CONFIG['sic_auth_url'].nil? ? "sic_auth_url" : config.APP_CONFIG['sic_auth_url'])
+    config.sic_ies_url = (config.APP_CONFIG['sic_ies_url'].nil? ? "sic_ies_url" : config.APP_CONFIG['sic_ies_url'])
   end
 
 end
