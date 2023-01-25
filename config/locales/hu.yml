@@ -54,6 +54,8 @@ hu:
     check_message_1: "Felhasználási feltételekkel"
     check_message_2: ""
     other: "feltételek"
+  conditions2:
+    check_message: "Elfogadom, hogy ezt az adattárat kizárólag tanulmányi és oktatási célokra használom. Ha elmulasztom ezt a kötelezettségvállalást, a fiókomat és az összes erőforrásomat töröljük."
   contact:
     pending:
       other: "Követnek téged"

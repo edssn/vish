@@ -54,6 +54,8 @@ de:
     check_message: "Duch anklicken von Aktzeptieren, stimmt du zu "
     check_message_1: "Bedingungen."
     other: "Konditionen"
+  conditions2:
+    check_message: "Ich stimme zu, dieses Repository ausschließlich für akademische und pädagogische Zwecke zu verwenden. Wenn ich diese Verpflichtung verpasse, werden mein Konto und alle meine Ressourcen gelöscht."
   contact:
     pending:
       other: "Folgt dir"

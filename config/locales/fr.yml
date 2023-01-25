@@ -52,6 +52,8 @@ fr:
     check_message_1: "conditions générales"
     check_message_2: " de ViSH."
     other: "conditions"
+  conditions2:
+    check_message: "J'accepte d'utiliser ce référentiel exclusivement à des fins académiques et éducatives. Si je manque cet engagement, mon compte et toutes mes ressources seront supprimés."
   contact:
     pending:
       other: "Abonnés"

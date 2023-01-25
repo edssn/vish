@@ -294,6 +294,8 @@ en:
     check_message_2: ""
     other: "terms and conditions"
     terms_use: "Terms of use"
+  conditions2:
+    check_message: "I agree to use this repository exclusively for academic and educational purposes. If I miss this commitment, my account and all my resources will be deleted."
   contact:
     follow: "Follow"
     unfollow: "Unfollow"
