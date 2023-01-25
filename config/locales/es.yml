@@ -276,8 +276,6 @@ es:
     check_message_2: " de ViSH."
     other: "términos y condiciones"
     terms_use: "Condiciones de uso"
-  conditions2:
-    check_message: "Me comprometo a usar este repositorio exclusivamente con fines académicos y educativos. Si llego a faltar este compromiso, mi cuenta y todos mis recursos serán eliminados."
   contact:
     follow: "Seguir"
     unfollow: "Dejar de seguir"
@@ -926,10 +924,6 @@ es:
         scientist: "Ciencia"
         select: "Selecciona tu ocupación"
         teacher: "Educación"
-    institution:
-      label: "Institución Educativa"
-      options:
-        select: "Selecciona"
     remove: "Borrar usuario"
     tags:
       default: "VisHub, virtual, excursión"
@@ -1295,3 +1289,10 @@ es:
   zipfile:
     name: "fichero ZIP"
     confirm_delete: "¿Borrar fichero ZIP?"
+  custom:
+    institution:
+      label: "Institución Educativa"
+      options:
+        select: "Selecciona"
+    conditions:
+      check_message: "Me comprometo a usar este repositorio exclusivamente con fines académicos y educativos. Si llego a faltar este compromiso, mi cuenta y todos mis recursos serán eliminados."

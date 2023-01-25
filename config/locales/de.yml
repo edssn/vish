@@ -54,8 +54,6 @@ de:
     check_message: "Duch anklicken von Aktzeptieren, stimmt du zu "
     check_message_1: "Bedingungen."
     other: "Konditionen"
-  conditions2:
-    check_message: "Ich stimme zu, dieses Repository ausschließlich für akademische und pädagogische Zwecke zu verwenden. Wenn ich diese Verpflichtung verpasse, werden mein Konto und alle meine Ressourcen gelöscht."
   contact:
     pending:
       other: "Folgt dir"
@@ -526,10 +524,6 @@ de:
         scientist: "Wissenschaft"
         teacher: "Bildung"
         other: "Andere"
-    institution:
-      label: "Bildungseinrichtung"
-      options:
-        select: "Auswählen"
   project: "Global Excursion"
   quiz:
     actions:
@@ -662,3 +656,10 @@ de:
   zipfile:
     name: "ZIP-datei"
     confirm_delete: "Löschen Zip-Datei?"
+  custom:
+    institution:
+      label: "Bildungseinrichtung"
+      options:
+        select: "Auswählen"
+    conditions:
+      check_message: "Ich stimme zu, dieses Repository ausschließlich für akademische und pädagogische Zwecke zu verwenden. Wenn ich diese Verpflichtung verpasse, werden mein Konto und alle meine Ressourcen gelöscht."

@@ -54,8 +54,6 @@ hu:
     check_message_1: "Felhasználási feltételekkel"
     check_message_2: ""
     other: "feltételek"
-  conditions2:
-    check_message: "Elfogadom, hogy ezt az adattárat kizárólag tanulmányi és oktatási célokra használom. Ha elmulasztom ezt a kötelezettségvállalást, a fiókomat és az összes erőforrásomat töröljük."
   contact:
     pending:
       other: "Követnek téged"
@@ -466,10 +464,6 @@ hu:
         scientist: "Tudományos"
         teacher: "Oktatás"
         other: "Egyéb"
-    institution:
-      label: "Oktatási Intézmény"
-      options:
-        select: "Válassza..."
   project: "Global Excursion"
   quiz:
     actions:
@@ -607,3 +601,10 @@ hu:
   zipfile:
     name: "Zip-fájl"
     confirm_delete: "Törli a Zip-fájlt?"
+  custom:
+    institution:
+      label: "Oktatási Intézmény"
+      options:
+        select: "Válassza..."
+    conditions:
+      check_message: "Elfogadom, hogy ezt az adattárat kizárólag tanulmányi és oktatási célokra használom. Ha elmulasztom ezt a kötelezettségvállalást, a fiókomat és az összes erőforrásomat töröljük."

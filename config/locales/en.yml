@@ -294,8 +294,6 @@ en:
     check_message_2: ""
     other: "terms and conditions"
     terms_use: "Terms of use"
-  conditions2:
-    check_message: "I agree to use this repository exclusively for academic and educational purposes. If I miss this commitment, my account and all my resources will be deleted."
   contact:
     follow: "Follow"
     unfollow: "Unfollow"
@@ -946,10 +944,6 @@ en:
         teacher: "Education"
         other: "Other"
       select: "Select your occupation"
-    institution:
-      label: "Educational Institution"
-      options:
-        select: "Select"
     remove: "Remove user"
     tags:
       default: "VisHub, virtual, excursion"
@@ -1315,3 +1309,10 @@ en:
   zipfile:
     name: "ZIP file"
     confirm_delete: "Delete Zip file?"
+  custom:
+    institution:
+      label: "Educational Institution"
+      options:
+        select: "Select"
+    conditions:
+      check_message: "I agree to use this repository exclusively for academic and educational purposes. If I miss this commitment, my account and all my resources will be deleted."

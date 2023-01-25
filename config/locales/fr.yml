@@ -51,9 +51,7 @@ fr:
     check_message: "J'accepte les "
     check_message_1: "conditions générales"
     check_message_2: " de ViSH."
-    other: "conditions"
-  conditions2:
-    check_message: "J'accepte d'utiliser ce référentiel exclusivement à des fins académiques et éducatives. Si je manque cet engagement, mon compte et toutes mes ressources seront supprimés."
+    other: "conditions"  
   contact:
     pending:
       other: "Abonnés"
@@ -226,10 +224,6 @@ fr:
       scientist: "Scientifique"
       select: "Sélectionnez votre profession"
       teacher: "Enseignant"
-    institution:
-      label: "Établissement D'enseignement"
-      options:
-        select: "Sélectionnez"
     tags:
       default: "VisHub, virtuel, excursion"
       other: "Centres d'intérêt"
@@ -574,3 +568,10 @@ fr:
   zipfile:
     name: "Fichier Zip"
     confirm_delete: "Supprimer le fichier Zip?"
+  custom:
+    institution:
+      label: "Établissement D'enseignement"
+      options:
+        select: "Sélectionnez"
+    conditions:
+      check_message: "J'accepte d'utiliser ce référentiel exclusivement à des fins académiques et éducatives. Si je manque cet engagement, mon compte et toutes mes ressources seront supprimés."

@@ -15,7 +15,7 @@
            profile_subject.occupation), {}, class: "form-control") 
       %>
 
-      <%= f.label "Institución de Educación" %>
+      <%= f.label t('custom.institution.label') %>
         <%= f.select(:institution, options_for_select(
             @institutions.map { |t| [t["name"], t["id"]]}, 
             current_user ? current_user.institution : nil

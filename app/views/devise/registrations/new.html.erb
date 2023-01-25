@@ -35,7 +35,7 @@
             params[:user] ? params[:user][:occupation] : nil), {}, class: "form-control") 
         %>
 
-        <%= f.label t('profile.institution.label') %>
+        <%= f.label t('custom.institution.label') %>
         <%# <%= f.select :occupation, @institutions.map { |t| [t["name"], t["id"]]}, {}, class: "form-control" %>
         <%= f.select(:institution, options_for_select(
             @institutions.map { |t| [t["name"], t["id"]]}, 
@@ -90,7 +90,7 @@
           <label>
             <input type="checkbox" id="inlineCheckbox1" required="required" title="You need to accept the Terms and Conditions to create your account" value="option1">
             <span class="lbl padding-0">
-              <%= t('conditions2.check_message') %>
+              <%= t('custom.conditions.check_message') %>
             </span>
           </label>
         </div>
