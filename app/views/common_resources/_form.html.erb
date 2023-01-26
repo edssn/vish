@@ -155,7 +155,7 @@
       <% end %>
 
       <section class="knowledge_areas">
-        <%= f.label :knowledge_area_id, t('document.info.knowledge_areas') %>
+        <%= f.label :knowledge_area_id, t('knowledge_areas.title') %>
         <%= f.select(:knowledge_area_id, resource_knowledge_area_options_for_select(resource.activity_object.knowledge_area_id), {}, {:class => "resource_knowledge_areas"}) %>
       </section>
 

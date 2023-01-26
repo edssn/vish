@@ -524,7 +524,6 @@ en:
       author: "Author"
       description: "Description"
       license: "License"
-      knowledge_areas: "Knowledge Area"
       license_attribution: "Attribute to"
       license_custom_form: "Specify license"
       linked_by: "Linked by"
@@ -772,18 +771,6 @@ en:
       cc-by-nc-nd: "Creative Commons Attribution-NonCommercial-NoDerivs"
       other: "Other free license"
       private: "None (All rights reserved)"
-  knowledge_areas:
-      ka-administration-business: Administration, Business and Legislation
-      ka-agriculture-forestry: Agriculture, Forestry, Fisheries and Veterinary
-      ka-arts-humanities: Arts and Humanities
-      ka-physical-sciences: Physical Sciences, Natural Sciences, Mathematics and Statistics
-      ka-social-sciences: Social Sciences, Journalism and Information
-      ka-education: Education
-      ka-information-communication: Information and Communication (ICT)
-      ka-engineering-industry: Engineering, Industry and Construction
-      ka-generic-programs: Generic Programs and Qualifications
-      ka-health-wellness: Health & Wellness
-      ka-services: Services
   link:
     one: "link"
     other: "links"
@@ -1316,3 +1303,16 @@ en:
         select: "Select"
     conditions:
       check_message: "I agree to use this repository exclusively for academic and educational purposes. If I miss this commitment, my account and all my resources will be deleted."
+  knowledge_areas:
+    title: "Knowledge Area"
+    ka-administration-business: "Administration, Business and Legislation"
+    ka-agriculture-forestry: "Agriculture, Forestry, Fisheries and Veterinary"
+    ka-arts-humanities: "Arts and Humanities"
+    ka-physical-sciences: "Physical Sciences, Natural Sciences, Mathematics and Statistics"
+    ka-social-sciences: Social Sciences, Journalism and Information
+    ka-education: "Education"
+    ka-information-communication: "Information and Communication (ICT)"
+    ka-engineering-industry: "Engineering, Industry and Construction"
+    ka-generic-programs: "Generic Programs and Qualifications"
+    ka-health-wellness: "Health & Wellness"
+    ka-services: "Services"

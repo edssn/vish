@@ -114,7 +114,7 @@
         <!--knowledge area-->
         <% unless resource.knowledge_area_id.nil? %>
           <tr>
-            <td><span><%= t('document.info.knowledge_areas') %></span></td>
+            <td><span><%= t('knowledge_areas.title') %></span></td>
             <td>
               <%= resource.activity_object.knowledge_area.name %>
             </td>

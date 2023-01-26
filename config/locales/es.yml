@@ -505,7 +505,6 @@ es:
       author: "Autor"
       description: "Descripción"
       license: "Licencia"
-      knowledge_areas: "Área de Conocimiento"
       license_attribution: "Atribuir a"
       license_custom_form: "Especificar licencia"
       linked_by: "Enlazado por"
@@ -751,18 +750,6 @@ es:
       cc-by-nc-nd: "Creative Commons Reconocimiento-NoComercial-SinObraDerivada"
       other: "Otra licencia libre"
       private: "Ninguna (Todos los derechos reservados)"
-  knowledge_areas:
-      ka-administration-business: Administración, Negocios y Legislación
-      ka-agriculture-forestry: Agricultura, Silvicultura, Pesca y Veterinaria
-      ka-arts-humanities: Artes y Humanidades
-      ka-physical-sciences: Ciencias Físicas, Ciencias Naturales, Matemáticas y Estadísticas
-      ka-social-sciences: Ciencias Sociales, Periodismo e información
-      ka-education: Educación
-      ka-information-communication: Información y Comunicación (TIC)
-      ka-engineering-industry: Ingeniería, Industria y Construcción
-      ka-generic-programs: Programas Genéricos y Calificaciones
-      ka-health-wellness: Salud y Bienestar
-      ka-services: Servicios
   link:
     one: "enlace"
     other: "enlaces"
@@ -1296,3 +1283,16 @@ es:
         select: "Selecciona"
     conditions:
       check_message: "Me comprometo a usar este repositorio exclusivamente con fines académicos y educativos. Si llego a faltar este compromiso, mi cuenta y todos mis recursos serán eliminados."
+  knowledge_areas:
+    title: "Área de Conocimiento"
+    ka-administration-business: "Administración, Negocios y Legislación"
+    ka-agriculture-forestry: "Agricultura, Silvicultura, Pesca y Veterinaria"
+    ka-arts-humanities: "Artes y Humanidades"
+    ka-physical-sciences: "Ciencias Físicas, Ciencias Naturales, Matemáticas y Estadísticas"
+    ka-social-sciences: "Ciencias Sociales, Periodismo e información"
+    ka-education: "Educación"
+    ka-information-communication: "Información y Comunicación (TIC)"
+    ka-engineering-industry: "Ingeniería, Industria y Construcción"
+    ka-generic-programs: "Programas Genéricos y Calificaciones"
+    ka-health-wellness: "Salud y Bienestar"
+    ka-services: "Servicios"

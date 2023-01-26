@@ -33,7 +33,7 @@
           <td id="end"><%= @event.end_at %></td>
         </tr>
         <tr>
-          <td><span><%= t('document.info.knowledge_areas') %></span></td>
+          <td><span><%= t('knowledge_areas.title') %></span></td>
             <td> <%= KnowledgeArea.getknowledgeAreaName(@event.activity_object.knowledge_area_id) %> </td>
         </tr>
       </table>
