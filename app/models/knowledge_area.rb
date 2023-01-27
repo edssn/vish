@@ -1,4 +1,6 @@
 class KnowledgeArea < ActiveRecord::Base
+  set_primary_key "id"
+
   has_many :activity_objects
 
   validates :key, :presence => true, :uniqueness => true
